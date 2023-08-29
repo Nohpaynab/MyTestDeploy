@@ -1,0 +1,105 @@
+body{
+    font-family: Helvetica, sans-serif;
+    background: #23242a;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    /*กําหนดขนาดด้วย flex-wrap   | wrap จัดวาง items ที่เกินพื้นที่ container เรียงจากบนลงล่าง*/
+}
+
+.dropdown{
+    min-width: 15em;
+    position: relative;
+    /*relative - ใช้ในการจัดวางและกําหนดตําแหน่งวัตถุโดยการนับจากจุดที่วัตถุนั้นๆอยู่
+      absolute - ใช้ในการจัดวางวัตถุ ให้ไปอยู่ตําแหน่งใดก็ได้แต่ต้องกําหนดตําแหน่งจากขอบของ elememt ที่บรรจุ วัตถุนั้นๆอีกที (ถ้าไม่มีอะไรครอบก็ถือว่า body เป็น elememt ที่ครอบวัตถุที่ระบุ absolute)*/
+
+    margin: 2em;
+    margin-top: 16em;
+}
+
+.dropdown *{
+    box-sizing: border-box;
+    /*border-box - กําหนดขนาดให้พอดีกับพื้นที่ว่างโดยคํานวณจากค่าจริงที่ผู้ใช้กําหนด (border + padding) เพื่อไม่ให้ item แสดงผลเพี้ยน*/
+}
+
+.select {
+    background: #2a2f3b;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px #2a2f3b solid;
+    border-radius: 0.5em;
+    padding: 1em;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+
+/*added later in Javascript*/
+.select-clicked{
+    border: 2px #26489a solid;
+    box-shadow: 0 0 0.8em #26489a; 
+}
+
+.select:hover{
+    background: #323741;
+}
+
+.caret {
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top:  6px solid #fff;
+    transition: 0.3s;
+}
+
+
+/*Rotate styles added later in Javascript*/
+.caret-rotate{
+    transform: rotate(180deg);
+}
+
+.menu {
+    list-style: none;
+    padding: 0.2em 0.5em;
+    background: #323741;
+    border: 1px #363a43 solid;
+    box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.2);
+    border-radius: 0.5em;
+    color: #9fa5b5;
+    position: absolute;
+    top: 3em;
+    left: 50%;
+    width: 100%;
+    transform: translateX(-50%);
+    opacity: 0;
+    display: none;
+    transition: 0.2;
+    z-index: 1;
+}
+
+.menu li{
+    padding: 0.7em 0.5em;
+    margin: 0.3em 0;
+    border-radius: 0.5em;
+    cursor: pointer;
+}
+
+.menu li:hover{
+    background: #2a2d35;
+}
+
+
+/*Active styles added later in Javascript*/
+.active{
+    background: #23242a;
+}
+
+.menu-open{
+    display: block;
+    opacity: 1;
+}
